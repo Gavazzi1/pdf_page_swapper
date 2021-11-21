@@ -1,4 +1,4 @@
-from PyPDF2 import PdfFileReader, PdfFileWriter
+from PyPDF2 import PdfFileReader
 import sys
 from swapper import swap_pages
 
@@ -13,7 +13,8 @@ if __name__ == '__main__':
 
     # get reader and writer
     input_pdf = PdfFileReader(in_fn)
-    pdf_writer = swap_pages(input_pdf, PdfFileWriter())
+    pdf_writer = swap_pages(input_pdf)
 
+    # write pdf
     with open(out_fn, 'wb') as output_file:
         pdf_writer.write(output_file)

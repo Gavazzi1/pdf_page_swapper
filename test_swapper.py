@@ -6,6 +6,7 @@ from reportlab.lib.pagesizes import letter
 from swapper import swap_pages
 
 
+# returns a reader for the contents of a given writer
 def writer2reader(wrtr):
     final = io.BytesIO()
     wrtr.write(final)
@@ -36,7 +37,7 @@ def make_test_pdf(npages):
 class MyTestCase(unittest.TestCase):
     def test_swapper_1page(self):
         test_rdr = make_test_pdf(1)
-        wrtr = swap_pages(test_rdr, PdfFileWriter())
+        wrtr = swap_pages(test_rdr)
 
         rdr = writer2reader(wrtr)
         self.assertEqual(rdr.numPages, 4)
@@ -47,7 +48,7 @@ class MyTestCase(unittest.TestCase):
 
     def test_swapper_2page(self):
         test_rdr = make_test_pdf(2)
-        wrtr = swap_pages(test_rdr, PdfFileWriter())
+        wrtr = swap_pages(test_rdr)
 
         rdr = writer2reader(wrtr)
         self.assertEqual(rdr.numPages, 4)
@@ -58,7 +59,7 @@ class MyTestCase(unittest.TestCase):
 
     def test_swapper_3page(self):
         test_rdr = make_test_pdf(3)
-        wrtr = swap_pages(test_rdr, PdfFileWriter())
+        wrtr = swap_pages(test_rdr)
 
         rdr = writer2reader(wrtr)
         self.assertEqual(rdr.numPages, 4)
@@ -69,7 +70,7 @@ class MyTestCase(unittest.TestCase):
 
     def test_swapper_4page(self):
         test_rdr = make_test_pdf(4)
-        wrtr = swap_pages(test_rdr, PdfFileWriter())
+        wrtr = swap_pages(test_rdr)
 
         rdr = writer2reader(wrtr)
         self.assertEqual(rdr.numPages, 4)
@@ -80,7 +81,7 @@ class MyTestCase(unittest.TestCase):
 
     def test_swapper_5page(self):
         test_rdr = make_test_pdf(5)
-        wrtr = swap_pages(test_rdr, PdfFileWriter())
+        wrtr = swap_pages(test_rdr)
 
         rdr = writer2reader(wrtr)
         self.assertEqual(rdr.numPages, 8)
@@ -95,7 +96,7 @@ class MyTestCase(unittest.TestCase):
 
     def test_swapper_6page(self):
         test_rdr = make_test_pdf(6)
-        wrtr = swap_pages(test_rdr, PdfFileWriter())
+        wrtr = swap_pages(test_rdr)
 
         rdr = writer2reader(wrtr)
         self.assertEqual(rdr.numPages, 8)
@@ -110,7 +111,7 @@ class MyTestCase(unittest.TestCase):
 
     def test_swapper_7page(self):
         test_rdr = make_test_pdf(7)
-        wrtr = swap_pages(test_rdr, PdfFileWriter())
+        wrtr = swap_pages(test_rdr)
 
         rdr = writer2reader(wrtr)
         self.assertEqual(rdr.numPages, 8)
@@ -125,7 +126,7 @@ class MyTestCase(unittest.TestCase):
 
     def test_swapper_8page(self):
         test_rdr = make_test_pdf(8)
-        wrtr = swap_pages(test_rdr, PdfFileWriter())
+        wrtr = swap_pages(test_rdr)
 
         rdr = writer2reader(wrtr)
         self.assertEqual(rdr.numPages, 8)
