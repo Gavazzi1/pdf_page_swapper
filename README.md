@@ -1,5 +1,7 @@
 # What this does
-This Python program pads a given pdf to a multiple of 4 pages and, for every 4 pages in the pdf, swaps pages 2 and 3
+This Python program pads a given pdf to a multiple of 4 pages and, for every 4 pages in the pdf, swaps pages 2 and 3.
+
+Then, it stitches every 2 consecutive pages together vertically and writes to a new pdf file.
 
 # Why?
 When printing documents for book binding, I format the document in Word for 8.5x11" paper and print it. 
@@ -35,12 +37,16 @@ You can get short-grained paper from certain online sites, but that's a bit of a
 
 Instead, I wanted to be able to print the book on 11x17" paper and cut it along the 17" side, thus getting short-grained 11x8.5" paper.
 
-The workflow was this:  
-1) Add the text to MS word and format it for book binding  
-2) Print to pdf to get a document with the pages layed out like in the diagram above  
-3) Print the pdf, adjusting the settings to print on 11x17" paper and print 2 pages per sheet
+So, the idea was to print the document with 2 pages per sheet, every PDF editor and printer I tried would absolutely butcher the resolution of the text when converting to 11x17" by stretching the text and adding borders.
+
+I wrote the merger script to append every 2 consecutive pages without any scaling shenanigans or unnecessary borders.
 
 However, the problem with this is that the page containing sub-pages 1 and 16 will now be printed on the same side of the sheet as the page containing sub-pages 
 2 and 15, when they should be back to back for folding.
 
-This program swaps pages 2 and 3 so that when you print on 11x17" paper, the correct pages appear back to back.
+That's why the swapper script exists. It swaps pages 2 and 3 so that when you print on 11x17" paper, the correct pages appear back to back.
+
+The final workflow is this:  
+1) Add the text to MS word and format it for book binding  
+2) Print to pdf to get a document with the pages layed out like in the diagram above  
+3) Run the resulting pdf through this script to get an 11x17" pdf with the right pages back to back and with 2 pages per side of a sheet  
