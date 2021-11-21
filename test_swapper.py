@@ -4,14 +4,7 @@ import io
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
 from swapper import swap_pages
-
-
-# returns a reader for the contents of a given writer
-def writer2reader(wrtr):
-    final = io.BytesIO()
-    wrtr.write(final)
-    rdr = PdfFileReader(final)
-    return rdr
+from util import writer2reader
 
 
 # makes a pdf with "npages" pages, each of which has the text that is just the page number and a newline
