@@ -27,9 +27,9 @@ The resulting document prints in landscape orientation and is formatted so that 
 ```
 
 Note the page numbers. You fold multiple sheets up and sew them together, and the pages in the original document 
-are paired up so that when you fold them, the appear in order in the final book.
+are paired up so that when you fold them, they appear in-order in the final book.
 
-However, most printer paper is long-grained, meaning it runs along the long side of the paper.
+However, most printer paper is long-grained, meaning the grain runs along the long side of the paper.
 
 If you fold the page along the middle like in the diagram, you fold against the grain, which makes the pages harder to turn and may make the book deteriorate faster.
 
@@ -37,11 +37,11 @@ You can get short-grained paper from certain online sites, but that's a bit of a
 
 Instead, I wanted to be able to print the book on 11x17" paper and cut it along the 17" side, thus getting short-grained 11x8.5" paper.
 
-So, the idea was to print the document with 2 pages per sheet, every PDF editor and printer I tried would absolutely butcher the resolution of the text when converting to 11x17" by stretching the text and adding borders.
+I thought it would be easy to just print the document with 2 pages per sheet, but every PDF editor and printer I tried would absolutely butcher the resolution of the text when converting to 11x17" by stretching the text and adding borders.
 
 I wrote the merger script to append every 2 consecutive pages without any scaling shenanigans or unnecessary borders.
 
-However, the problem with this is that the page containing sub-pages 1 and 16 will now be printed on the same side of the sheet as the page containing sub-pages 
+But then there was another problem. The page containing sub-pages 1 and 16 will now be printed on the same side of the sheet as the page containing sub-pages 
 2 and 15, when they should be back to back for folding.
 
 That's why the swapper script exists. It swaps pages 2 and 3 so that when you print on 11x17" paper, the correct pages appear back to back.
