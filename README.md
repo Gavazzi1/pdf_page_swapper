@@ -37,7 +37,7 @@ You can get short-grained paper from certain online sites, but that's a bit of a
 
 Instead, I wanted to be able to print the book on 11x17" paper and cut it along the 17" side, thus getting short-grained 11x8.5" paper.
 
-I thought it would be easy to just print the document with 2 pages per sheet, but every PDF editor and printer I tried would absolutely butcher the resolution of the text when converting to 11x17" by stretching the text and adding borders.
+I thought it would be easy to just print the document with 2 pages per sheet, but every PDF editor and printer I tried would absolutely butcher the formatting when converting to 11x17" by stretching the text and adding borders.
 
 I wrote the merger script to append every 2 consecutive pages without any scaling shenanigans or unnecessary borders.
 
