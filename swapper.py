@@ -1,9 +1,13 @@
 from PyPDF2 import PdfFileReader, PdfFileWriter
+import warnings
 
 
 # Pads a given pdf to a multiple of 4 pages and, for every 4 pages in the pdf, swaps pages 2 and 3
 # Returns a PdfFileWriter of the newly written pdf
 def swap_pages(input_pdf: PdfFileReader):
+    # lots of superfluous whitespace warnings otherwise that are meaningless
+    warnings.filterwarnings("ignore")
+
     pdf_writer = PdfFileWriter()
 
     # loop over pdf in steps of 4 pages
