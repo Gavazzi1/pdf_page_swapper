@@ -15,16 +15,15 @@ if __name__ == '__main__':
     # read file and swap pages
     input_pdf = PdfFileReader(in_fn)
 
-    print('swapping pages')
+    print('Swapping pages')
     pdf_writer = swap_pages(input_pdf)
 
     # get new reader for new pdf and merge every 2 pages
     newrdr = writer2reader(pdf_writer)
 
-    print('merging pages')
-    merged_writer = merge_pdf(newrdr)
+    merged_writer = merge_pdf(newrdr, True)
 
     # write pdf
     with open(out_fn, 'wb') as output_file:
-        print('writing pdf')
+        print('Writing PDF')
         merged_writer.write(output_file)
