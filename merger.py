@@ -1,7 +1,6 @@
 from PyPDF2 import PdfFileReader, PdfFileWriter
 from PyPDF2.pdf import PageObject
 from concurrent.futures import ThreadPoolExecutor, wait
-from time import time
 from io import BytesIO
 
 
@@ -25,11 +24,13 @@ def merge_pdf(rdr: PdfFileReader, do_print=True):
     return wrtr
 
 
-###
-### Ok so i tried making this parallel but it runs slower no matter what I try
-### mergeTranslatedPage and mergePage run much slower in threads and so it ultimately runs slower overall
-### I'm keeping the code here in case I have an epiphany, but for now it's useless
-###
+"""
+Ok so i tried making this parallel but it runs slower no matter what I try
+mergeTranslatedPage and mergePage run much slower in threads and so it ultimately runs slower overall
+I'm keeping the code here in case I have an epiphany, but for now it's useless
+"""
+
+
 def merge2(rdr_in, startidx, bufidx, buf, do_print):
     rdr = PdfFileReader(BytesIO(rdr_in.stream.getbuffer()))
 
